@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #141414;
+  color: #fff;
+}
+header {
+  background: #090b13;
+  padding: 1rem;
+  text-align: center;
+}
+.featured {
+  padding: 2rem;
+  text-align: center;
+}
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
