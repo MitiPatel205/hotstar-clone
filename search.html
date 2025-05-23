@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - Disney+ Clone</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <aside class="hotstar-sidebar" aria-label="Main navigation">
+  <nav>
+    <img src="./assets/images/logo.png" class="brand-logo" alt="Disney+ logo">
+    <ul>
+      <li><a href="index.html" class="nav-home"><i class="bi bi-house-fill"></i> <span>Home</span></a></li>
+      <li><a href="search.html" class="nav-search"><i class="bi bi-search"></i> <span>Search</span></a></li>
+      <li><a href="shows.html" class="nav-shows"><i class="bi bi-tv"></i> <span>TV</span></a></li>
+      <li><a href="movies.html" class="nav-movies"><i class="bi bi-film"></i> <span>Movies</span></a></li>
+      <li><a href="sports.html" class="nav-sports"><i class="bi bi-trophy"></i> <span>Sports</span></a></li>
+      <li><a href="creators.html" class="nav-creators"><i class="bi bi-stars"></i> <span>Sparks</span></a></li>
+      <li><a href="categories.html" class="nav-categories"><i class="bi bi-grid"></i> <span>Categories</span></a></li>
+      <li><a href="login.html" class="nav-login"><i class="bi bi-person-circle"></i> <span>My Space</span></a></li>
+    </ul>
+  </nav>
+</aside>
+
+  <main id="main-content" tabindex="-1">
+  <h1>Search</h1>
+  <form class="search-form" role="search" aria-label="Search movies and shows">
+    <label for="search-input" class="visually-hidden">Search</label>
+    <input id="search-input" type="search" placeholder="Search for movies, shows, and more..." aria-label="Search" />
+    <button type="submit"><i class="bi bi-search"></i><span class="visually-hidden">Search</span></button>
+  </form>
+  <section aria-label="Search Results">
+    <div class="movies-list" id="search-results">
+      <!-- Search results will appear here -->
+    </div>
+    <div id="no-results" style="display:none; color:#fff; margin:2rem 0;">No results found.</div>
+  </section>
+</main>
+
+
+  <footer class="last-footer">
+  <div class="last-footer-texts">
+    <h3>© 2025 Disney+. All Rights Reserved.</h3>
+    <div class="last-footer-links">
+      <a href="#">Terms Of Use</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+  <div class="last-footer-assets">
+    <a href="https://play.google.com/store/apps/details?id=in.startv.hotstar" target="_blank" rel="noopener">
+      <img src="assets/images/google-playstore.webp" class="dwn" alt="Get it on Google Play">
+    </a>
+    <a href="https://apps.apple.com/in/app/hotstar/id934459219" target="_blank" rel="noopener">
+      <img src="assets/images/ios-appstore.webp" class="dwn" alt="Download on the App Store">
+    </a>
+  </div>
+</footer>
+
+  <script src="script/script.js"></script>
+</body>
+</html>
+
+
+

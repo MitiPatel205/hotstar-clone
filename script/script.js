@@ -2,29 +2,29 @@ let movies = [
   {
     name: "loki",
     des: "Loki is an American television series created by Michael Waldron for the streaming service Disney.",
-    image: "./images/slider 1.PNG",
+    image: "./assets/images/slider 1.PNG",
   },
   {
     name: "falcon and the winter soldier",
     des: "Falcon and the Winter Soldier is an American television series created for the streaming platform Disney+.",
-    image: "./images/slider 2.PNG",
+    image: "./assets/images/slider 2.PNG",
   },
   {
     name: "WandaVision",
     des: "WandaVision is an American television series created for the streaming service Disney+",
-    image: "./images/slider 3.PNG",
+    image: "./assets/images/slider 3.PNG",
   },
 
   {
     name: "Raya and the Last Dragon",
     des: "Raya and the Last Dragon is an animated Disney film released in 2021.",
-    image: "./images/slider 4.PNG",
+    image: "./assets/images/slider 4.PNG",
   },
 
   {
     name: "Luca",
     des: "Luca is a Disney-Pixar animated film released in 2021.",
-    image: "./images/slider 5.PNG",
+    image: "./assets/images/slider 5.PNG",
   },
 ];
 
@@ -125,3 +125,117 @@ nxtBtns.forEach((nxtBtn, index) => {
     scrollRight(cardContainers[index]);
   });
 });
+// Carousel/Slider Functionality
+document.querySelectorAll('.movies-list').forEach(list => {
+  const container = list.querySelector('.card-container');
+  const preBtn = list.querySelector('.pre-btn');
+  const nxtBtn = list.querySelector('.nxt-btn');
+  if (container && preBtn && nxtBtn) {
+    const scrollAmount = container.offsetWidth;
+    nxtBtn.addEventListener('click', () => {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+    preBtn.addEventListener('click', () => {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+});
+
+// Video Card Hover Play/Pause
+document.querySelectorAll('.video-card').forEach(card => {
+  const video = card.querySelector('.card-video');
+  card.addEventListener('mouseenter', () => { video && video.play(); });
+  card.addEventListener('mouseleave', () => { video && video.pause(); });
+});
+
+// Add to Watchlist Button
+document.querySelectorAll('.watchlist-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.textContent = 'Added!';
+    btn.disabled = true;
+  });
+});
+
+// Navbar Active State (Optional)
+const page = location.pathname.split('/').pop().replace('.html', '');
+document.querySelectorAll('.hotstar-sidebar a').forEach(link => {
+  if (link.href.includes(page) || (page === 'index' && link.href.includes('index.html'))) {
+    link.classList.add('active');
+  }
+});
+// Sample data (replace/add with your real movie/show data)
+const MOVIES = [
+  {
+    name: "Loki",
+    img: "assets/images/poster 1.png",
+    desc: "Loki challenges reality with time travel."
+  },
+  {
+    name: "Mulan",
+    img: "assets/images/poster 2.png",
+    desc: "Mulan: Courage, Honor, Warrior's Journey."
+  },
+  {
+    name: "The Falcon and the Winter Soldier",
+    img: "assets/images/poster 3.png",
+    desc: "Superheroes unite to battle villains."
+  },
+  {
+    name: "Soul",
+    img: "assets/images/poster 8.png",
+    desc: "A jazz musician discovers the meaning of life."
+  },
+  {
+    name: "Kabhi Khushi Kabhie Gham",
+    img: "assets/images/images/6.jpg",
+    desc: "A story of togetherness and family bonds."
+  },
+  // ...add more as needed
+];
+
+// Only run this code on search.html
+if (window.location.pathname.includes('search.html')) {
+  const form = document.querySelector('.search-form');
+  const input = document.getElementById('search-input');
+  const resultsContainer = document.getElementById('search-results');
+  const noResults = document.getElementById('no-results');
+
+  // Function to render results
+  function renderResults(results) {
+    resultsContainer.innerHTML = '';
+    if (results.length === 0) {
+      noResults.style.display = 'block';
+      return;
+    }
+    noResults.style.display = 'none';
+    results.forEach(movie => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${movie.img}" alt="${movie.name}" class="card-img">
+        <div class="card-body">
+          <h2 class="name">${movie.name}</h2>
+          <h6 class="des">${movie.desc}</h6>
+          <button class="watchlist-btn">add to watchlist</button>
+        </div>
+      `;
+      resultsContainer.appendChild(card);
+    });
+  }
+
+  // Optional: Show all movies by default, or leave empty
+  renderResults(MOVIES);
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const query = input.value.trim().toLowerCase();
+    if (!query) {
+      renderResults(MOVIES); // Show all if query is empty
+      return;
+    }
+    const filtered = MOVIES.filter(movie =>
+      movie.name.toLowerCase().includes(query)
+    );
+    renderResults(filtered);
+  });
+}
