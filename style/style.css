@@ -221,7 +221,7 @@ body {
   height: 450px;
   padding: 20px 0;
   overflow-x: hidden;
-  margin-top: 80px;
+  margin-top:auto;
 }
 
 .carousel {
@@ -874,9 +874,10 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 0 5%;
-  color: #999999;
+  color: #0c111b;
   font-size: 12px;
   margin-bottom:auto;
+  margin: auto;
 }
 .dwn {
   min-width: 100%;
@@ -1016,5 +1017,79 @@ body {
   }
   .last-footer-assets {
     margin-top: 1.2rem;
+  }
+}
+/* ...Your existing CSS... */
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .hotstar-sidebar { width: 60px; }
+  main { margin-left: 60px; }
+  .card { width: 140px; }
+  .card-img { height: 180px; }
+}
+@media (max-width: 600px) {
+  .hotstar-sidebar {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 8px 0;
+  }
+  .hotstar-sidebar nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+  }
+  .hotstar-sidebar nav ul li { margin: 0 8px; }
+  main { margin: 0; padding: 16px 4px 80px 4px; }
+  footer { left: 0; padding: 16px 4px; }
+  .card { width: 100vw; max-width: 320px; margin: 0 auto 16px auto; }
+}
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 1rem;
+}
+.card {
+  background: #1f253b;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 180px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform .2s;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+.card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-bottom: 1px solid #222;
+}
+.card-body {
+  padding: 12px;
+}
+@media (max-width: 600px) {
+  .movies-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90vw;
+    max-width: 320px;
   }
 }
